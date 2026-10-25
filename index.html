@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f4ef" />
+    <title>Three in a Row — Tic Tac Toe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Three in a Row home"><span class="brand-mark"><i></i><i></i><i></i><i></i></span> three in a row</a>
+        <span class="edition"><span class="live-dot"></span> THE CLASSIC, REIMAGINED</span>
+      </header>
+
+      <section class="intro">
+        <p class="eyebrow">A LITTLE FRIENDLY COMPETITION</p>
+        <h1>Make your <span>mark.</span></h1>
+        <p class="subtitle">Three in a row wins. It’s that simple.</p>
+      </section>
+
+      <section class="game-layout" aria-label="Tic tac toe game">
+        <aside class="sidebar">
+          <div class="panel-heading"><span class="section-number">01</span><h2>Set the game</h2></div>
+          <label class="field-label" for="mode">PLAY MODE</label>
+          <div class="select-wrap"><select id="mode" aria-label="Play mode"><option value="human">Player vs player</option><option value="bot">Player vs bot</option><option value="bots">Bot vs bot</option></select><span class="chevron">⌄</span></div>
+          <div id="single-difficulty">
+            <label class="field-label difficulty-label" for="difficulty">BOT DIFFICULTY <span class="info" title="Easy picks randomly. Medium uses the optimal strategy one third of the time; hard uses it two thirds of the time. Impossible always does.">i</span></label>
+            <div class="select-wrap"><select id="difficulty" aria-label="Bot difficulty"><option value="easy">Easy</option><option value="medium" selected>Medium</option><option value="hard">Hard</option><option value="impossible">Impossible</option><option value="random">Random mode</option></select><span class="chevron">⌄</span></div>
+            <div class="difficulty-note" id="difficulty-note">A balanced mix of clever and unpredictable.</div>
+          </div>
+          <div id="bot-difficulties" hidden>
+            <label class="field-label difficulty-label" for="difficulty-x">BOT 1 (×) DIFFICULTY</label>
+            <div class="select-wrap"><select id="difficulty-x" aria-label="Bot 1 difficulty"><option value="easy">Easy</option><option value="medium" selected>Medium</option><option value="hard">Hard</option><option value="impossible">Impossible</option><option value="random">Random mode</option></select><span class="chevron">⌄</span></div>
+            <label class="field-label difficulty-label" for="difficulty-o">BOT 2 (○) DIFFICULTY</label>
+            <div class="select-wrap"><select id="difficulty-o" aria-label="Bot 2 difficulty"><option value="easy">Easy</option><option value="medium" selected>Medium</option><option value="hard">Hard</option><option value="impossible">Impossible</option><option value="random">Random mode</option></select><span class="chevron">⌄</span></div>
+            <div class="difficulty-note" id="difficulty-note-bots">Choose a challenge for each bot.</div>
+          </div>
+          <div class="divider"></div>
+          <div class="score-heading"><span class="field-label">MATCH SCORE</span><button id="reset-score" class="text-button" type="button">Reset</button></div>
+          <div class="scoreboard">
+            <div class="score-card"><span class="score-symbol x-color">×</span><span class="score-name" id="x-name">Player 1</span><strong id="x-score">0</strong></div>
+            <div class="score-card"><span class="score-symbol o-color">○</span><span class="score-name" id="o-name">Player 2</span><strong id="o-score">0</strong></div>
+            <div class="score-card draw-card"><span class="score-symbol draw-symbol">↔</span><span class="score-name">Draws</span><strong id="draw-score">0</strong></div>
+          </div>
+          <p class="score-caption">Scores stay here until you reset them.</p>
+        </aside>
+
+        <section class="board-panel">
+          <div class="board-topline"><div class="turn-indicator"><span class="turn-dot" id="turn-dot"></span><span id="status" aria-live="polite">Player 1’s turn</span></div><div class="round-controls"><span class="round-label" id="round-label">ROUND 01</span><button class="new-round" id="new-round" type="button" title="Start a new round" aria-label="Start a new round">↻</button></div></div>
+          <div class="board" id="board" role="grid" aria-label="Tic tac toe board"></div>
+          <div class="board-footer"><span><kbd>1</kbd>—<kbd>9</kbd> to play</span><span>FIRST TO THREE? <b>YOUR CALL.</b></span></div>
+        </section>
+      </section>
+
+      <footer class="footer"><span>NO ACCOUNTS. NO ADS. JUST NINESQUARES.</span><span>BUILT FOR THE NEXT REMATCH <span class="footer-star">✳</span></span></footer>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
